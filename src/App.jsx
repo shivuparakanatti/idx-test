@@ -1,20 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import "./App.css";
+import React from 'react'
 
-function App() {
- const[count,setCount] = useState(0) 
-
- 
-
+const App = () => {
   return (
-    <div className="container">
-      <h1>count : {count}</h1>
-      <button onClick={handleChange}>+</button>
-      isEven : {isEvenMemo}
-      <button onClick={handleMinus}>-</button>
-
-    </div>
-  );
+    <div>App</div>
+  )
 }
 
-export default App;
+export default App
