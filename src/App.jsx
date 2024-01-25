@@ -1,20 +1,34 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
 function App() {
-  const inputRef = useRef()
-
-  useEffect(()=>{
-
-    inputRef.current.focus()
-  })
+ const[count,setCount] = useState(0) 
+ const[isEven,setIsEven] = useState('no') 
   const handleChange = (e) => {
+    if(count<100000000000){
+
+      setCount(count+1)
+    }
   };
+
+  const handleMinus = ()=>{
+    setCount(count-1)
+  }
+
+  const isEvenMemo = useMemo(()=>{
+    if(count%2===0){
+      setIsEven('yes')
+    }
+  })
+ 
 
   return (
     <div className="container">
-     <input type='text' onChange={handleChange} placeholder="ref"/>
-     <input type='text' onChange={handleChange} ref={inputRef}  />
+      <h1>count : {count}</h1>
+      <button onClick={handleChange}>+</button>
+      isEven : {isEvenMemo}
+      <button onClick={handleMinus}>-</button>
+
     </div>
   );
 }
